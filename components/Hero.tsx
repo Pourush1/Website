@@ -1,3 +1,4 @@
+import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerationEffect";
@@ -45,7 +46,11 @@ const Hero = () => {
           </p>
 
           <a href="#about">
-            <MagicButton title="About Me" position="left" />
+            <MagicButton
+              title="About Me"
+              position="left"
+              icon={<FaLocationArrow />}
+            />
           </a>
         </div>
       </div>
