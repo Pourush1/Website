@@ -36,8 +36,12 @@ const Hero = () => {
           </p>
           <TextGenerateEffect
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Hi, I'm Pourush. A Software Engineer based in United States."
+            words="Transforming ideas into functional web applications"
           />
+          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+            I'm a software engineer based in United States. I'm currently
+            working on a project with Next.js and Tailwind CSS.
+          </p>
         </div>
       </div>
     </div>
