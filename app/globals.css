@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -81,7 +81,7 @@
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }
-}
+} */
 
 /* @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
