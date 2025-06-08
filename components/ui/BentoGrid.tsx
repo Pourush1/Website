@@ -1,6 +1,14 @@
+"use client";
+
+import { useState } from "react";
+import { IoCopyOutline } from "react-icons/io5";
+import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
+
 import { BackgroundGradientAnimation } from "./GradientBg";
 import { GridGlobe } from "./GridGlobe";
+import animationData from "@/data/confetti.json";
+import MagicButton from "../MagicButton";
 
 export const BentoGrid = ({
   className,
@@ -45,6 +53,23 @@ export const BentoGridItem = ({
 }) => {
   const leftLists = ["Javascript", "Typescript", "React.js"];
   const rightLists = ["Node.js", "Express", "GraphQL"];
+
+  const [copied, setCopied] = useState(false);
+
+  const defaultOptions = {
+    loop: copied,
+    autoplay: copied,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("pourushshrestha29@gmail.com");
+    setCopied(true);
+  };
+
   return (
     <div
       className={cn(
@@ -85,7 +110,7 @@ export const BentoGridItem = ({
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
         )}
-        
+
         <div
           className={cn(
             titleClassName,
@@ -129,6 +154,21 @@ export const BentoGridItem = ({
                   </span>
                 ))}
               </div>
+            </div>
+          )}
+
+          {id === 6 && (
+            <div className="mt=5 relative">
+              <div className="absolute -bottom-5 right-0">
+                <Lottie options={defaultOptions} height={200} width={400} />
+              </div>
+              <MagicButton
+                title={copied ? "Email is copied" : "Copy Email Address"}
+                position="left"
+                icon={<IoCopyOutline />}
+                otherClasses="!bg-[#161A31]"
+                handleClick={handleCopy}
+              />
             </div>
           )}
         </div>
