@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const PinContainer = ({
@@ -29,13 +28,14 @@ export const PinContainer = ({
   };
 
   return (
-    <div
+    <a
       className={cn(
         "relative group/pin z-50  cursor-pointer",
         containerClassName
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      href={href || "/"}
     >
       <div
         style={{
@@ -55,7 +55,7 @@ export const PinContainer = ({
         </div>
       </div>
       <PinPerspective title={title} href={href} />
-    </div>
+    </a>
   );
 };
 

@@ -14,8 +14,8 @@ const Experience = () => {
         {workExperience.map((card) => (
           <Button
             key={card.id}
-            //   random duration will be fun , I think , may be not
-            duration={Math.floor(Math.random() * 10000) + 10000}
+            //   consistent duration for better UX
+            duration={15000}
             borderRadius="1.75rem"
             style={{
               background: "rgb(4,7,29)",
