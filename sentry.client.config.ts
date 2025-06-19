@@ -11,8 +11,22 @@ Sentry.init({
   integrations: [
     Sentry.replayIntegration(),
     Sentry.feedbackIntegration({
-      // Additional SDK configuration goes in here, for example:
       colorScheme: "dark",
+      showBranding: false,
+      autoInject: true,
+      showName: true,
+      showEmail: true,
+      isNameRequired: false,
+      isEmailRequired: false,
+      themeDark: {
+        background: "#1a1a1a",
+        backgroundHover: "#292929",
+        foreground: "#ebe6ef",
+        error: "#f56565",
+        success: "#48bb78",
+        border: "#393a40",
+        interactiveFilter: "brightness(0.5)",
+      },
     }),
   ],
 
