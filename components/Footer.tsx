@@ -8,14 +8,13 @@ const Footer = () => {
     <footer className="w-full pb-10 mb-[100px] md:mb-5" id="contact">
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Ready to build something{" "}
-          <span className="text-purple">extraordinary</span> together?
+          Let&apos;s connect and share{" "}
+          <span className="text-purple">ideas</span> about technology
         </h1>
         <p className="text-white-200 mt-8 md:mt-10 mb-8 text-center">
-          As a full-stack software engineer with experience in modern web
-          technologies, I&apos;m passionate about creating scalable solutions
-          and innovative digital experiences. Let&apos;s discuss your next
-          project.
+          I&apos;m a full-stack software engineer passionate about modern web
+          technologies, scalable solutions, and continuous learning in the
+          ever-evolving tech landscape.
         </p>
         <a href="mailto:pourushshrestha29@gmail.com">
           <MagicButton

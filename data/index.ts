@@ -8,7 +8,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "I believe in effective teamwork and clear communication ",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full",
@@ -18,7 +18,7 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
+    title: "I enjoy teams with diverse perspectives",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -38,7 +38,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
+    title: "Tech enthusiast with a passion for software engineering.",
     description: "",
     className: "md:col-span-3 md:row-span-1 lg:col-span-2",
     imgClassName: "",
@@ -58,7 +58,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to work together?",
+    title: "Always excited to share knowledge and learn from fellow engineers",
     description: "",
     className: "md:col-span-3 md:row-span-1 lg:col-span-2",
     imgClassName: "",
@@ -90,31 +90,31 @@ export const projects = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Software Engineer - Axxess",
-    desc: "Added new key features to Hospice Dashboard and fixed bugs.",
+    title: "Senior Software Engineer - G2o Currently",
+    desc: "Engineered 3 prototype pages using Microfrontend architecture.",
     className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    thumbnail: "/exp4.svg",
   },
   {
     id: 2,
-    title: "Frontend Software Developer - Omviser LLC",
-    desc: "Modernized Javascript codebase and reduced technical debt of the application.",
-    className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
-  },
-  {
-    id: 3,
     title: "Backend Software Engineer - Uhaul",
     desc: "Developed and maintained authentication backend system for ESL applicaion of Uhaul.",
     className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
   {
-    id: 4,
-    title: "Software Engineer - G2o",
-    desc: "Engineered 3 prototype pages using Microfrontend architecture.",
+    id: 3,
+    title: "Frontend Software Developer - Omviser LLC",
+    desc: "Modernized Javascript codebase and reduced technical debt of the application.",
     className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    thumbnail: "/exp2.svg",
+  },
+  {
+    id: 4,
+    title: "Frontend Software Engineer - Axxess",
+    desc: "Added new key features to Hospice Dashboard and fixed bugs.",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
   },
 ];
 
