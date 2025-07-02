@@ -1,8 +1,8 @@
-import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
-import RecentProjects from "@/components/RecentProjects";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
+import Grid from "@/components/Grid";
+import Hero from "@/components/Hero";
+import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import { navItems } from "@/data";
 

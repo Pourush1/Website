@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function FeedbackButton() {
   const [sentryLoaded, setSentryLoaded] = useState(false);
@@ -8,7 +8,7 @@ export default function FeedbackButton() {
   useEffect(() => {
     // Check if Sentry is loaded
     const checkSentry = () => {
-      if (typeof window !== "undefined" && (window as any).Sentry) {
+      if (typeof window !== 'undefined' && (window as any).Sentry) {
         setSentryLoaded(true);
       }
     };
@@ -20,7 +20,7 @@ export default function FeedbackButton() {
   }, []);
 
   const openFeedback = () => {
-    if (typeof window !== "undefined" && (window as any).Sentry) {
+    if (typeof window !== 'undefined' && (window as any).Sentry) {
       const client = (window as any).Sentry.getClient();
       if (client) {
         const feedbackIntegration = client.getIntegration(
@@ -29,7 +29,7 @@ export default function FeedbackButton() {
         if (feedbackIntegration) {
           feedbackIntegration.openDialog();
         } else {
-          console.warn("Feedback integration not found");
+          console.warn('Feedback integration not found');
         }
       }
     }

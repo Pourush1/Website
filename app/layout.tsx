@@ -1,9 +1,9 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "./provider";
-import SentryInit from "@/components/SentryInit";
 import FeedbackButton from "@/components/FeedbackButton";
+import SentryInit from "@/components/SentryInit";
+import { ThemeProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
