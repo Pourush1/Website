@@ -1,7 +1,7 @@
-import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerationEffect";
+import { FaLocationArrow } from 'react-icons/fa6';
+import MagicButton from './MagicButton';
+import { Spotlight } from './ui/Spotlight';
+import { TextGenerateEffect } from './ui/TextGenerationEffect';
 
 const Hero = () => {
   return (
@@ -31,19 +31,17 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Pourush Shrestha Portfolio
+          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-96">
+            Pourush Shrestha Portfolio with Next.js
           </p>
           <TextGenerateEffect
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
             words="Building software that solves real world problems"
           />
-
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl mt-8">
             A Software Engineer passionate about delivering innovative solutions
             to complex challenges through cutting-edge technology and expertise.
           </p>
-
           <a href="#about">
             <MagicButton
               title="About Me"
