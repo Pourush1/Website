@@ -31,3 +31,4 @@ jobs:
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: ./
+          dangerous-clean-slate: true
