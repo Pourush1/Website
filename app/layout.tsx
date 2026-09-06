@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Pourush Shrestha",
     description:
       "Senior software engineer. Writing about software, systems, and things I'm learning.",
-    url: "https://pourush.com",
+    url: "https://pourushshrestha.com",
     siteName: "Pourush Shrestha",
   },
 };

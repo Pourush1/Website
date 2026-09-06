@@ -58,4 +58,4 @@ The original site used Three.js, Framer Motion, Sentry, react-lottie, and react-
 
 ## Domain
 
-`pourush.com` — deployed on Vercel (connect repo, zero config needed).
+`pourushshrestha.com` — deployed on Vercel (connect repo, zero config needed).

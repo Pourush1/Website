@@ -49,7 +49,7 @@ export default function Resume() {
     <>
       <div className="resume-header">
         <h1>Pourush Shrestha</h1>
-        <p className="subtitle">Senior Software Engineer · pourush.com</p>
+        <p className="subtitle">Senior Software Engineer · pourushshrestha.com</p>
         <a className="download-btn" href="/resume.pdf">
           ↓ Download PDF
         </a>
