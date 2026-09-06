@@ -23,6 +23,21 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Debug - list FTP directory structure
+        env:
+          FTP_HOST: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          FTP_USER: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+        run: |
+          echo "--- / (login root) ---"
+          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" || echo "(failed)"
+          echo "--- /domains/ ---"
+          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/" || echo "(failed)"
+          echo "--- /domains/pourushshrestha.com/ ---"
+          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/pourushshrestha.com/" || echo "(failed)"
+          echo "--- /public_html/ ---"
+          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/public_html/" || echo "(failed)"
+
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
