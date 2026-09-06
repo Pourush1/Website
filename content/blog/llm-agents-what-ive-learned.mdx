@@ -1,0 +1,27 @@
+---
+title: "Building an LLM agentic app: what I've learned so far"
+date: "2025-08-10"
+description: "Early notes from building an AI agent app on the side — the surprising parts, the boring parts, and where I think the real difficulty is."
+---
+
+I've been building an LLM agentic app on nights and weekends for the past few months. This is a collection of notes from that process — things that surprised me, things that didn't, and the questions I'm still working through.
+
+## What's actually hard
+
+The hard part isn't calling the API. That's easy. The hard part is what you do with the output.
+
+LLMs are probabilistic. Your code is deterministic. The seam between those two worlds is where almost every interesting problem lives. How do you retry a failed tool call? How do you know when the agent is genuinely stuck versus just expressing uncertainty? How do you design a loop that can be interrupted by the user mid-run?
+
+## Tool design matters more than model selection
+
+I spent the first few weeks obsessing over which model to use. I should have spent that time on tool design.
+
+A poorly-designed tool — one with ambiguous parameters, missing error descriptions, or too broad a scope — will produce worse results no matter which model you put behind it. A well-designed tool, with clear descriptions, constrained inputs, and explicit error states, makes the model's job straightforwardly easier.
+
+Think about tools the way you think about API design. Users of your API are models, but the principles are the same: clear names, single responsibilities, predictable outputs.
+
+## The UX is the product
+
+The agent loop is not the product. The experience of using the agent — watching it think, understanding what it's doing, being able to interrupt and redirect it — that's the product.
+
+I've been spending more time on the streaming UI than on the agent itself lately. That feels right.

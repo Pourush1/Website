@@ -1,0 +1,27 @@
+---
+title: "Why I still reach for plain CSS first"
+date: "2025-07-15"
+description: "A defense of writing CSS before reaching for a framework — and when that approach breaks down."
+---
+
+Every few months someone writes a post declaring CSS-in-JS dead, or Tailwind the final answer, or utility classes a mistake. I've stopped reading them. The ecosystem moves fast enough that any strong take has a short shelf life.
+
+What I've settled on instead: reach for plain CSS first, and upgrade to something heavier only when the pain is real and specific.
+
+## What plain CSS is actually good at
+
+Global design tokens. Custom properties (`--color-accent`, `--spacing-lg`) live naturally in `:root`, cascade sensibly, and are readable in DevTools without a translation layer. No framework required.
+
+Typography and vertical rhythm. Getting type right is mostly a matter of setting a scale and not breaking it. A handful of rules in a global stylesheet handles most of it.
+
+Component variants. `:is()`, `:has()`, and attribute selectors cover a surprising amount of the variant logic that used to require a library.
+
+## Where it breaks down
+
+Colocation. When a component's styles live far from its markup, maintenance becomes painful as the codebase grows. This is the strongest argument for CSS Modules or Tailwind — keeping the relationship between markup and style local.
+
+Dynamic styles. Anything that changes based on JavaScript state is awkward in plain CSS. You can reach for `data-` attributes and CSS selectors, but at some point that's more complex than just co-locating the logic.
+
+## The actual takeaway
+
+The question isn't "which CSS approach is best." It's "what's the cheapest solution to this specific problem." Plain CSS is often the cheapest, which is why I start there.

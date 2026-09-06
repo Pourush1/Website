@@ -1,0 +1,27 @@
+---
+title: "What I learned building a microfrontend at scale"
+date: "2025-09-01"
+description: "Reflections on shipping a microfrontend architecture at G2o — what worked, what didn't, and what I'd do differently."
+---
+
+When we started the project at G2o, the word "microfrontend" felt like the right answer to a real problem: a monolith that had grown too large for any single team to reason about confidently.
+
+## The theory versus the practice
+
+The promise of microfrontends is independence — teams ship their slice without coordinating with everyone else. In practice, you trade one set of coordination costs for another. Instead of talking about shared components, you talk about shared contracts, versioning, and deployment order.
+
+The tooling around this has gotten dramatically better. Module Federation in Webpack 5, and now in Rspack, makes the wiring mostly invisible. But the `shared` config is where you'll spend your afternoon.
+
+> The real win wasn't the architecture. It was forcing us to define our boundaries.
+
+## What I'd do differently
+
+If I were starting again, I'd spend the first two weeks drawing those seams on a whiteboard before touching any code. The technical implementation is the easy part — agreeing on where one team ends and another begins is where the real work happens.
+
+**Version your contracts explicitly.** The most painful bugs we hit were silent mismatches between what the host expected and what a remote was exporting. A shared type package with proper semver made this tractable.
+
+**Don't share state across remotes.** It's tempting, especially early, to pass a global store between microfrontends. Resist it. The moment you do, you've rebuilt the monolith in a distributed costume.
+
+## On the build times
+
+One unexpected win: build times dropped significantly once we could rebuild only the remote that changed. On a codebase that had grown to hundreds of components, that matters more than you'd think.
