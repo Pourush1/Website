@@ -8,25 +8,25 @@ const experience = [
   {
     title: "Senior Software Engineer",
     company: "G2o",
-    period: "2024 – Present",
+    period: "2021 – Present",
     desc: "Engineered 3 prototype pages using Microfrontend architecture. Led the migration of legacy components to a modern design system.",
   },
   {
     title: "Backend Software Engineer",
     company: "Uhaul",
-    period: "2023 – 2024",
+    period: "2020 – 2021",
     desc: "Developed and maintained the authentication backend system for the ESL application.",
   },
   {
     title: "Frontend Software Developer",
     company: "Omviser LLC",
-    period: "2022 – 2023",
+    period: "2020 – 2021",
     desc: "Modernized the JavaScript codebase and reduced technical debt across the application.",
   },
   {
     title: "Frontend Software Engineer",
     company: "Axxess",
-    period: "2021 – 2022",
+    period: "2019 – 2020",
     desc: "Added new key features to the Hospice Dashboard and resolved critical bugs in production.",
   },
 ];
@@ -49,7 +49,7 @@ export default function Resume() {
     <>
       <div className="resume-header">
         <h1>Pourush Shrestha</h1>
-        <p className="subtitle">Senior Software Engineer · pourushshrestha.com</p>
+        <p className="subtitle">Software Engineer</p>
         <a className="download-btn" href="/resume.pdf">
           ↓ Download PDF
         </a>

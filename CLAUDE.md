@@ -1,4 +1,4 @@
-# pourush.com
+# pourushshrestha.com
 
 Personal portfolio site for Pourush Shrestha. Intentionally minimal — inspired by overreacted.io.
 
@@ -13,12 +13,12 @@ Personal portfolio site for Pourush Shrestha. Intentionally minimal — inspired
 
 ## Pages
 
-| Route | File | Description |
-|---|---|---|
-| `/` | `app/page.tsx` | Home: intro + recent posts |
-| `/resume` | `app/resume/page.tsx` | HTML resume; update experience/skills inline |
-| `/blog` | `app/blog/page.tsx` | Flat list of all posts |
-| `/blog/[slug]` | `app/blog/[slug]/page.tsx` | Individual post rendered from MDX |
+| Route          | File                       | Description                                  |
+| -------------- | -------------------------- | -------------------------------------------- |
+| `/`            | `app/page.tsx`             | Home: intro + recent posts                   |
+| `/resume`      | `app/resume/page.tsx`      | HTML resume; update experience/skills inline |
+| `/blog`        | `app/blog/page.tsx`        | Flat list of all posts                       |
+| `/blog/[slug]` | `app/blog/[slug]/page.tsx` | Individual post rendered from MDX            |
 
 ## Writing a new blog post
 
