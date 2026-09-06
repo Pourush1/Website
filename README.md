@@ -1,6 +1,6 @@
 # pourush.com
 
-Personal portfolio site for [Pourush Shrestha](https://pourushshrestha.com). Intentionally minimal — inspired by overreacted.io.
+Personal portfolio site for [Pourush Shrestha](https://pourushshrestha.com). Intentionally minimal.
 
 ## Stack
 
