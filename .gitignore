@@ -42,3 +42,8 @@ next-env.d.ts
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# AI agent skills (mattpocock/skills, local dev tooling only)
+/.agents
+/.claude/skills
+skills-lock.json
