@@ -59,3 +59,17 @@ The original site used Three.js, Framer Motion, Sentry, react-lottie, and react-
 ## Domain
 
 `pourushshrestha.com` — deployed on Vercel (connect repo, zero config needed).
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked as GitHub Issues on `Pourush1/Website`, via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
