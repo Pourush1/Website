@@ -21,7 +21,7 @@ jest.mock("next-mdx-remote/rsc", () => ({
 
 const mockedGetAllPosts = getAllPosts as jest.Mock;
 const mockedGetPost = getPost as jest.Mock;
-const mockedNotFound = notFound as jest.Mock;
+const mockedNotFound = notFound as unknown as jest.Mock;
 
 describe("generateStaticParams", () => {
   it("maps posts to slug params", async () => {
