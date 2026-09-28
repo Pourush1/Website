@@ -8,90 +8,56 @@ const socialLinks = [
   { name: "Twitter ↗", href: "https://x.com/pourush29" },
 ];
 
+const introText = "max-w-[580px] font-serif text-lede leading-[1.75] text-fg";
+
+const homeLink =
+  "text-ui font-medium text-accent transition-colors duration-150 hover:text-accent-hover hover:underline hover:underline-offset-3";
+
 export default function Home() {
   const posts = getAllPosts().slice(0, 5);
 
   return (
     <>
-      <section className="intro">
-        <h1>Software engineer who builds things that matter.</h1>
-        <p>
+      <section className="mb-14">
+        <h1 className="mb-5 font-display text-hero leading-heading font-semibold tracking-heading text-balance">
+          Software engineer who builds things that matter.
+        </h1>
+        <p className={introText}>
           I&apos;m a senior software engineer at G2o, working across frontend
           and backend systems. I care about clean architecture, fast feedback
           loops, and teams that communicate well.
         </p>
-        <p>
+        <p className={`${introText} mt-3.5`}>
           Previously at Uhaul, Omviser, and Axxess. Currently building an LLM
           agentic app on the side.
         </p>
-        <div className="home-links">
+        <div className="mt-7 flex flex-wrap gap-5">
           {socialLinks.map((l) => (
-            <a key={l.name} href={l.href} target="_blank" rel="noopener noreferrer">
+            <a
+              key={l.name}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={homeLink}
+            >
               {l.name}
             </a>
           ))}
-          <Link href="/resume">Resume →</Link>
+          <Link href="/resume" className={homeLink}>
+            Resume →
+          </Link>
         </div>
       </section>
 
       {posts.length > 0 && (
         <>
-          <hr className="divider" />
-          <p className="section-label">Recent writing</p>
+          <hr className="my-12 border-t border-border" />
+          <p className="mb-5 text-label font-semibold tracking-label text-muted uppercase">
+            Recent writing
+          </p>
           <PostList posts={posts} />
         </>
       )}
-
-      <style>{`
-        .intro { margin-bottom: 56px; }
-        .intro h1 {
-          font-family: var(--font-playfair), Georgia, serif;
-          font-size: 34px;
-          font-weight: 600;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
-          text-wrap: balance;
-          margin-bottom: 20px;
-        }
-        .intro p {
-          font-family: var(--font-lora), Georgia, serif;
-          font-size: 17px;
-          line-height: 1.75;
-          color: var(--text);
-          max-width: 580px;
-        }
-        .intro p + p { margin-top: 14px; }
-        .home-links {
-          display: flex;
-          gap: 20px;
-          margin-top: 28px;
-          flex-wrap: wrap;
-        }
-        .home-links a {
-          color: var(--accent);
-          font-size: 14px;
-          font-weight: 500;
-          transition: color 0.15s;
-        }
-        .home-links a:hover {
-          color: var(--accent-hover);
-          text-decoration: underline;
-          text-underline-offset: 3px;
-        }
-        .divider {
-          border: none;
-          border-top: 1px solid var(--border);
-          margin: 48px 0;
-        }
-        .section-label {
-          color: var(--text-secondary);
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          margin-bottom: 20px;
-        }
-      `}</style>
     </>
   );
 }
