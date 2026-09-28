@@ -22,7 +22,7 @@ describe("getAllPosts", () => {
       "older-post.mdx",
       "newer-post.mdx",
       "not-a-post.txt",
-    ] as unknown as fs.Dirent[]);
+    ] as unknown as ReturnType<typeof fs.readdirSync>);
 
     mockedFs.readFileSync.mockImplementation((filePath) => {
       const file = String(filePath);
@@ -60,7 +60,7 @@ Some newer content.`;
       "post.mdx",
       "README.md",
       "notes.txt",
-    ] as unknown as fs.Dirent[]);
+    ] as unknown as ReturnType<typeof fs.readdirSync>);
     mockedFs.readFileSync.mockReturnValue(`---
 title: "Post"
 date: "2024-01-01"
@@ -77,7 +77,7 @@ Content.`);
     mockedFs.existsSync.mockReturnValue(true);
     mockedFs.readdirSync.mockReturnValue([
       "untitled.mdx",
-    ] as unknown as fs.Dirent[]);
+    ] as unknown as ReturnType<typeof fs.readdirSync>);
     mockedFs.readFileSync.mockReturnValue(`---
 ---
 No frontmatter fields here.`);
