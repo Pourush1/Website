@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getAllPosts, formatDateShort } from "@/lib/posts";
+import PostList from "@/components/PostList";
+import { getAllPosts } from "@/lib/posts";
 
 const socialLinks = [
   { name: "GitHub ↗", href: "https://github.com/Pourush1" },
@@ -37,14 +38,7 @@ export default function Home() {
         <>
           <hr className="divider" />
           <p className="section-label">Recent writing</p>
-          <ul className="post-list">
-            {posts.map((post) => (
-              <li key={post.slug} className="post-item">
-                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                <span className="post-date">{formatDateShort(post.date)}</span>
-              </li>
-            ))}
-          </ul>
+          <PostList posts={posts} />
         </>
       )}
 
@@ -96,30 +90,6 @@ export default function Home() {
           letter-spacing: 0.12em;
           text-transform: uppercase;
           margin-bottom: 20px;
-        }
-        .post-list { list-style: none; }
-        .post-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          padding: 13px 0;
-          border-bottom: 1px solid var(--border);
-          gap: 16px;
-        }
-        .post-item:first-child { border-top: 1px solid var(--border); }
-        .post-item a {
-          color: var(--text);
-          font-size: 15px;
-          font-weight: 500;
-          flex: 1;
-          transition: color 0.15s;
-        }
-        .post-item a:hover { color: var(--accent); }
-        .post-date {
-          color: var(--text-secondary);
-          font-size: 13px;
-          font-variant-numeric: tabular-nums;
-          white-space: nowrap;
         }
       `}</style>
     </>
