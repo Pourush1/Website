@@ -45,22 +45,11 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${lora.variable} ${playfair.variable}`}
       >
-        <div className="site-wrapper">
+        <div className="mx-auto max-w-[660px] px-6">
           <Header />
-          <main>{children}</main>
+          <main className="pt-14 pb-20">{children}</main>
           <Footer />
         </div>
-
-        <style>{`
-          .site-wrapper {
-            max-width: 660px;
-            margin: 0 auto;
-            padding: 0 24px;
-          }
-          main {
-            padding: 56px 0 80px;
-          }
-        `}</style>
       </body>
     </html>
   );

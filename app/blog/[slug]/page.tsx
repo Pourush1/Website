@@ -29,50 +29,27 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
-      <Link href="/blog" className="back-link">
+      <Link
+        href="/blog"
+        className="mb-10 inline-block text-meta text-muted transition-colors duration-150 hover:text-accent"
+      >
         ← All posts
       </Link>
 
-      <header className="post-header">
-        <div className="post-meta">
+      <header className="mb-10">
+        <div className="mb-3 flex items-center gap-2.5 text-meta text-muted">
           <span>{formatDate(post.date)}</span>
           <span>·</span>
           <span>{post.readingTime}</span>
         </div>
-        <h1>{post.title}</h1>
+        <h1 className="font-display text-post-title leading-heading font-semibold tracking-heading text-balance">
+          {post.title}
+        </h1>
       </header>
 
       <article className="prose">
         <MDXRemote source={post.content} />
       </article>
-
-      <style>{`
-        .back-link {
-          display: inline-block;
-          color: var(--text-secondary);
-          font-size: 13px;
-          margin-bottom: 40px;
-          transition: color 0.15s;
-        }
-        .back-link:hover { color: var(--accent); }
-        .post-header { margin-bottom: 40px; }
-        .post-meta {
-          display: flex;
-          gap: 10px;
-          color: var(--text-secondary);
-          font-size: 13px;
-          margin-bottom: 12px;
-          align-items: center;
-        }
-        .post-header h1 {
-          font-family: var(--font-playfair), Georgia, serif;
-          font-size: 32px;
-          font-weight: 600;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
-          text-wrap: balance;
-        }
-      `}</style>
     </>
   );
 }

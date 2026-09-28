@@ -6,7 +6,7 @@ Personal portfolio site for Pourush Shrestha. Intentionally minimal — inspired
 
 - **Next.js 15** (App Router, static export)
 - **TypeScript**
-- **Tailwind CSS v4** (used minimally — mostly CSS custom properties)
+- **Tailwind CSS v4** — utility classes in JSX; design tokens are CSS custom properties exposed via `@theme`
 - **next-mdx-remote** — renders MDX blog posts at build time
 - **gray-matter** — parses frontmatter from `.mdx` files
 - Google Fonts via `next/font/google`: Playfair Display (headings), Lora (body/prose), DM Sans (UI)
@@ -39,6 +39,10 @@ Posts are sorted by `date` descending. The home page shows the 5 most recent.
 ## Theming
 
 Colors are CSS custom properties on `:root` in `app/globals.css`. Light and dark mode are both defined there. To change the accent color, update `--accent` and `--accent-hover` in both the light and dark blocks.
+
+Components style themselves with Tailwind utility classes. The tokens are registered with `@theme inline` in `globals.css`, so `text-accent`, `text-muted`, `border-border`, `bg-tag-bg` etc. follow light/dark mode automatically — don't use `dark:` variants. The site's type scale (`text-label`, `text-meta`, `text-ui`, `text-body`, `text-lede`, heading sizes) and fonts (`font-display`, `font-serif`, `font-sans`) are defined there too; add to them rather than writing `text-[13px]`.
+
+Keep any hand-written CSS in `globals.css` inside an `@layer` — unlayered rules override every utility class. The `.prose` styles for MDX post bodies stay as CSS because MDX output can't take utility classes.
 
 ## Key files
 

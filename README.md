@@ -6,7 +6,7 @@ Personal portfolio site for [Pourush Shrestha](https://pourushshrestha.com). Int
 
 - **Next.js 15** (App Router, fully static)
 - **TypeScript**
-- **Tailwind CSS v4** (used minimally — mostly CSS custom properties)
+- **Tailwind CSS v4** — utility classes in JSX; design tokens are CSS custom properties exposed via `@theme`
 - **next-mdx-remote** — renders MDX blog posts at build time
 - **gray-matter** — parses frontmatter from `.mdx` files
 - Google Fonts: Playfair Display, Lora, DM Sans

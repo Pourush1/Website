@@ -1,49 +1,30 @@
 import Link from "next/link";
 
+const navLinks = [
+  { name: "Resume", href: "/resume" },
+  { name: "Blog", href: "/blog" },
+];
+
 export default function Header() {
   return (
-    <>
-      <header>
-        <Link href="/" className="site-name">
-          Pourush Shrestha
-        </Link>
-        <nav>
-          <Link href="/resume">Resume</Link>
-          <Link href="/blog">Blog</Link>
-        </nav>
-      </header>
-
-      <style>{`
-        header {
-          display: flex;
-          align-items: baseline;
-          justify-content: space-between;
-          padding: 40px 0 64px;
-          flex-wrap: wrap;
-          gap: 12px;
-        }
-        .site-name {
-          font-family: var(--font-playfair), Georgia, serif;
-          font-size: 20px;
-          font-weight: 600;
-          color: var(--text);
-          letter-spacing: -0.01em;
-        }
-        nav {
-          display: flex;
-          gap: 28px;
-        }
-        nav a {
-          color: var(--text-secondary);
-          font-size: 14px;
-          font-weight: 500;
-          letter-spacing: 0.01em;
-          transition: color 0.15s;
-        }
-        nav a:hover {
-          color: var(--accent);
-        }
-      `}</style>
-    </>
+    <header className="flex flex-wrap items-baseline justify-between gap-3 pt-10 pb-16">
+      <Link
+        href="/"
+        className="font-display text-logo font-semibold tracking-[-0.01em] text-fg"
+      >
+        Pourush Shrestha
+      </Link>
+      <nav className="flex gap-7">
+        {navLinks.map((l) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            className="text-ui font-medium tracking-[0.01em] text-muted transition-colors duration-150 hover:text-accent"
+          >
+            {l.name}
+          </Link>
+        ))}
+      </nav>
+    </header>
   );
 }

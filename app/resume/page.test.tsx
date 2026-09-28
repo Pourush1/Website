@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import Resume from "./page";
 
 describe("Resume page", () => {
@@ -24,7 +24,9 @@ describe("Resume page", () => {
 
     const heading = screen.getByRole("heading", { name: "Experience" });
     const section = heading.closest("section") as HTMLElement;
-    expect(section.getElementsByClassName("job")).toHaveLength(4);
+    for (const company of ["G2o", "Uhaul", "Omviser LLC", "Axxess"]) {
+      expect(within(section).getByText(company)).toBeInTheDocument();
+    }
   });
 
   it("renders a tag for each skill", () => {
@@ -32,6 +34,19 @@ describe("Resume page", () => {
 
     const heading = screen.getByRole("heading", { name: "Skills" });
     const section = heading.closest("section") as HTMLElement;
-    expect(section.getElementsByClassName("skill-tag")).toHaveLength(10);
+    for (const skill of [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Microfrontends",
+      "Module Federation",
+      "SQL",
+      "Docker",
+      "AWS",
+      "Git",
+    ]) {
+      expect(within(section).getByText(skill)).toBeInTheDocument();
+    }
   });
 });
