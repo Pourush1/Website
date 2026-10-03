@@ -20,16 +20,20 @@ export default function Home() {
     <>
       <section className="mb-14">
         <h1 className="mb-5 font-display text-hero leading-heading font-semibold tracking-heading text-balance">
-          Software engineer who builds things that matter.
+          High-agency AI software engineer who builds things that matter.
         </h1>
         <p className={introText}>
-          I&apos;m a senior software engineer at G2o, working across frontend
-          and backend systems. I care about clean architecture, fast feedback
-          loops, and teams that communicate well.
+          I&apos;m a senior software engineer at G2O. My depth is in the
+          frontend, and I work across the stack — backend services, databases,
+          CI/CD — whenever the product needs it. Right now I co-lead the Product Explore area of
+          the product detail page at Gap Inc. — recommendations, product
+          grouping, and quick add on pages used by millions of shoppers a day
+          across four brands.
         </p>
         <p className={`${introText} mt-3.5`}>
-          Previously at Uhaul, Omviser, and Axxess. Currently building an LLM
-          agentic app on the side.
+          I care about clean architecture, fast feedback loops, and teams that
+          communicate well. Previously at U-Haul and Axxess. Currently building
+          an LLM agentic app on the side.
         </p>
         <div className="mt-7 flex flex-wrap gap-5">
           {socialLinks.map((l) => (
