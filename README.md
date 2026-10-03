@@ -51,4 +51,4 @@ Drop a PDF at `public/resume.pdf` to activate the Download PDF button on `/resum
 
 ## Deployment
 
-Deployed on Vercel. Connect the repo — zero config needed, Next.js is detected automatically.
+Hosted on Hostinger. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the static export and uploads `out/` over FTP.
