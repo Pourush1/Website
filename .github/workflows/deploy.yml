@@ -23,21 +23,11 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Debug - list FTP directory structure
-        env:
-          FTP_HOST: ${{ secrets.HOSTINGER_FTP_SERVER }}
-          FTP_USER: ${{ secrets.HOSTINGER_FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-        run: |
-          echo "--- / (login root) ---"
-          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" || echo "(failed)"
-          echo "--- /domains/ ---"
-          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/" || echo "(failed)"
-          echo "--- /domains/pourushshrestha.com/ ---"
-          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/pourushshrestha.com/" || echo "(failed)"
-          echo "--- /public_html/ ---"
-          curl -s -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/public_html/" || echo "(failed)"
+      # Published with the site so the verify step can tell which commit is live.
+      - name: Write version marker
+        run: echo "$GITHUB_SHA" > out/deploy-version.txt
 
+      # The FTP account's home directory is the site's public_html, so ./ is the live root.
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -45,5 +35,19 @@ jobs:
           username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: ./domains/pourushshrestha.com/public_html/
-          dangerous-clean-slate: true
+          server-dir: ./
+
+      # Fails the run if the upload didn't land in the folder the site is served from.
+      - name: Verify live site serves this commit
+        run: |
+          for i in 1 2 3 4 5 6; do
+            live=$(curl -fsS "https://pourushshrestha.com/deploy-version.txt?run=$GITHUB_RUN_ID-$i" || true)
+            if [ "$live" = "$GITHUB_SHA" ]; then
+              echo "Live site is serving $GITHUB_SHA"
+              exit 0
+            fi
+            echo "Attempt $i: live version is '${live:-<missing>}', expected $GITHUB_SHA"
+            sleep 10
+          done
+          echo "::error::Deploy finished but pourushshrestha.com is not serving this commit. The FTP upload went to the wrong folder."
+          exit 1
