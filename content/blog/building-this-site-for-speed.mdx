@@ -1,0 +1,33 @@
+---
+title: "Building this site: simple, static, and fast"
+date: "2026-10-03"
+description: "How this site is set up — Next.js, Server Components, Tailwind, TypeScript — and why performance was the main thing I cared about."
+---
+
+This is the first post on the new version of this site, so it seems fair to start with how it's built and why.
+
+## Starting over, smaller
+
+The old site had Three.js, Framer Motion, Lottie animations, and a 3D scene on the home page. It looked impressive for about two seconds, and then you waited for it to load. For a page whose job is "here's who I am and what I've written," that trade made no sense.
+
+So I rebuilt it with one question in mind: what's the least this site needs to do?
+
+## The setup
+
+- **Next.js with the App Router**, exported as plain static HTML. No server to run, nothing to scale — just files on a host.
+- **Server Components everywhere.** There isn't a single `"use client"` in the codebase. Every page renders at build time, so the browser gets finished HTML instead of a JavaScript bundle that has to build the page itself.
+- **Tailwind CSS** for styling, with colors and type sizes as design tokens so light and dark mode come for free.
+- **TypeScript**, because even a small project is nicer when the editor catches mistakes for me.
+- **MDX for posts.** Writing something new means adding one `.mdx` file and pushing. No CMS, no database.
+
+## Why performance first
+
+Speed is the part of a website people feel before they read a single word. A fast page feels respectful of someone's time; a slow one feels like it's asking for patience it hasn't earned.
+
+It's also a good constraint. Every time I was tempted to add something — an animation, a library, a widget — the question became: is this worth what it costs on load? Almost always the answer was no, and the site got simpler for it.
+
+The result is a PageSpeed Insights performance score of 100 on [desktop](https://pagespeed.web.dev/analysis/https-pourushshrestha-com/vfef7p2rf4?form_factor=desktop) and 98 on [mobile](https://pagespeed.web.dev/analysis/https-pourushshrestha-com/vfef7p2rf4?form_factor=mobile), and I didn't have to fight for it. Most of it came from *not* adding things rather than optimizing them afterward.
+
+## What's next
+
+Now that publishing is as easy as writing a Markdown file, the plan is to actually write — more technical notes, and eventually some thoughts on AI and how I'm using it in my work.
