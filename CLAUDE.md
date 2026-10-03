@@ -1,6 +1,6 @@
 # pourushshrestha.com
 
-Personal portfolio site for Pourush Shrestha. Intentionally minimal — inspired by overreacted.io.
+Personal portfolio site for Pourush Shrestha. Intentionally minimal.
 
 ## Stack
 
@@ -62,7 +62,7 @@ The original site used Three.js, Framer Motion, Sentry, react-lottie, and react-
 
 ## Domain
 
-`pourushshrestha.com` — deployed on Vercel (connect repo, zero config needed).
+`pourushshrestha.com` — hosted on Hostinger. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the static export and uploads `out/` over FTP to `domains/pourushshrestha.com/public_html/`. FTP credentials are the `HOSTINGER_FTP_*` repo secrets.
 
 ## Agent skills
 
