@@ -62,7 +62,7 @@ The original site used Three.js, Framer Motion, Sentry, react-lottie, and react-
 
 ## Domain
 
-`pourushshrestha.com` — hosted on Hostinger. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the static export and uploads `out/` over FTP to `domains/pourushshrestha.com/public_html/`. FTP credentials are the `HOSTINGER_FTP_*` repo secrets.
+`pourushshrestha.com` — hosted on Hostinger. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the static export, uploads `out/` over FTP, then checks that `https://pourushshrestha.com/deploy-version.txt` serves the pushed commit (the run fails otherwise). The `HOSTINGER_FTP_*` repo secrets belong to an FTP account (`u765133414.pourush1`) whose home directory is the site's `public_html`, so the workflow uploads to `./`.
 
 ## Agent skills
 
