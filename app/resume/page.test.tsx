@@ -11,12 +11,12 @@ describe("Resume page", () => {
     expect(screen.getByText(/Senior Frontend Engineer ·/)).toBeInTheDocument();
   });
 
-  it("links the download button to the resume PDF", () => {
+  it("links the download button to a versioned resume PDF", () => {
     render(<Resume />);
 
-    expect(
-      screen.getByRole("link", { name: /download pdf/i })
-    ).toHaveAttribute("href", "/resume.pdf");
+    const link = screen.getByRole("link", { name: /download pdf/i });
+    expect(link.getAttribute("href")).toMatch(/^\/resume\.pdf\?v=[0-9a-f]{8}$/);
+    expect(link).toHaveAttribute("download", "Pourush-Shrestha-Resume.pdf");
   });
 
   it("links contact details without a phone number", () => {

@@ -1,3 +1,6 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,6 +8,13 @@ export const metadata: Metadata = {
 };
 
 // Mirrors public/resume.pdf (Senior Frontend Engineer variant). Keep the two in sync.
+
+// Content hash of the PDF, computed at build time. Changing the PDF changes the
+// URL, so browsers that cached an older copy fetch the new one.
+const pdfVersion = createHash("sha256")
+  .update(readFileSync(path.join(process.cwd(), "public/resume.pdf")))
+  .digest("hex")
+  .slice(0, 8);
 
 const contactLinks = [
   { name: "Email", href: "mailto:pourushshrestha29@gmail.com" },
@@ -197,7 +207,8 @@ export default function Resume() {
         </div>
         <a
           className="mt-5 inline-block rounded border border-border px-4.5 py-2 text-meta font-medium text-muted transition-colors duration-150 hover:border-accent hover:text-accent"
-          href="/resume.pdf"
+          href={`/resume.pdf?v=${pdfVersion}`}
+          download="Pourush-Shrestha-Resume.pdf"
         >
           ↓ Download PDF
         </a>
